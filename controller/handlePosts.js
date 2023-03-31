@@ -10,6 +10,15 @@ export const getPost = async (req, res) => {
     }
 }
 
+export const getPostId = async (req, res) => {
+    try {
+        const posts = await Post.findById(req.params.postId)
+        res.json(posts)
+    } catch(error) {
+        res.json({message: err})
+    }
+}
+
 export const createPost = async (req, res) => {
     const post = new Post({
         title: req.body.title, 

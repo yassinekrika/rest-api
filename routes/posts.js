@@ -1,6 +1,6 @@
 import express from "express";
 import Post from '../models/Post.js'
-import { getPost, createPost, deletePost, updatePost } from "../controller/handlePosts.js";
+import { getPost, createPost, deletePost, updatePost, getPostId } from "../controller/handlePosts.js";
 
 const router = express.Router()
 
@@ -8,10 +8,10 @@ const router = express.Router()
 router.get('/', getPost)
 
 // submit the posts
-router.post('/', )
+router.post('/', createPost)
 
 // sepecific post based on the id value
-router.get('/:postId', createPost)
+router.get('/:postId', getPostId)
 
 // delete post based on the id value
 router.delete('/:postsId', deletePost)
